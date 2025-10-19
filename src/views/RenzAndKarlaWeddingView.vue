@@ -10,7 +10,7 @@
                 <v-row class="justify-center mt-4" dense>
                     <v-col v-for="(value, key, i) in countdown" :key="key" cols="2" sm="1"
                         class="d-flex flex-column align-center">
-                        <v-card class="count-box d-flex align-center justify-center pa-2">
+                        <v-card class="count-box d-flex align-center justify-center pa-2 bg-secondary">
                             <span class="text-h6 font-weight-bold">{{ value.toString().padStart(2, '0')
                             }}</span>
                         </v-card>
@@ -259,20 +259,26 @@
         <div class="text-center ma-4">
             <div style="font-family: 'Great Vibes', cursive; font-size: 2rem;">RSVP</div>
             <v-card class="bg-white text-justify pa-4">
-                <v-form @submit.prevent="submitRSVP" ref="form">
-                    <v-text-field v-model="form.name" label="Your Name" variant="outlined" required></v-text-field>
+                <v-form ref="rsvpFormRef" v-model="valid">
+                    <v-text-field v-model="form.name" label="Your Name *" variant="outlined"
+                        :rules="[v => !!v || 'Name is required']"></v-text-field>
                     <v-text-field v-model="form.number" label="Phone Number (optional)"
                         variant="outlined"></v-text-field>
-                    <v-select v-model="form.attendance" :items="['Yes', 'No']" label="Will you attend?"
-                        variant="outlined" required></v-select>
+                    <v-select v-model="form.attendance" :items="['Yes', 'No']" label="Will you attend? *"
+                        variant="outlined" :rules="[v => !!v || 'Please select one']"></v-select>
                     <v-textarea v-model="form.message" label="Message (optional)" variant="outlined"></v-textarea>
-                    <v-btn color="primary" type="submit" class="mt-4">Send RSVP</v-btn>
+                    <v-btn color="primary" block class="mt-4" :loading="loading" @click.stop="submitRSVP">
+                        Submit
+                    </v-btn>
                 </v-form>
+                <v-alert v-if="message" class="mt-4" type="success" variant="tonal" dismissible>
+                    {{ message }}
+                </v-alert>
             </v-card>
         </div>
-        <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
-        </link>
     </div>
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
+    </link>
 </template>
 <script setup>
 import homeImage from '../assets/images/Home.jpg'
@@ -281,30 +287,41 @@ import monogram from '../assets/images/Monogram.png'
 import entourage from '../assets/images/Entourage1.webp'
 import dressCode from '../assets/images/Dress Code.jpg'
 import timeline from '../assets/images/Timeline.webp'
-import { ref, onMounted } from 'vue'
+import { ref, onMounted, reactive } from 'vue'
 
+const valid = ref(false)
+const loading = ref(false)
+const message = ref('')
+const rsvpFormRef = ref(null)
 const weddingDate = new Date('2025-12-12T00:00:00')
 const countdown = ref({ Days: 0, Hours: 0, Minutes: 0, Seconds: 0 })
-const form = ref({ name: '', number: '', attendance: '', message: '' })
+const form = reactive({
+    name: '',
+    number: '',
+    attendance: '',
+    message: ''
+})
 
-async function submitRSVP() {
-    if (!valid.value) return
+const submitRSVP = async () => {
+    const { valid } = await rsvpFormRef.value.validate();
+    if (valid) {
+        loading.value = true
+        try {
+            // Replace this with your actual backend or Google Script endpoint
+            await fetch('https://script.google.com/macros/s/AKfycbyDzd0l-CSZ7QCl6Iw-kZTDSvLOy3T0mLAxPnuQZuVcEF5__K2W1QGtyCF0xjrUT-NE/exec', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(form.value)
+            })
 
-    loading.value = true
-    try {
-        // Replace this with your actual backend or Google Script endpoint
-        await fetch('https://script.google.com/macros/s/AKfycbyDzd0l-CSZ7QCl6Iw-kZTDSvLOy3T0mLAxPnuQZuVcEF5__K2W1QGtyCF0xjrUT-NE/exec', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify(form.value)
-        })
-
-        message.value = 'Thank you for your response! 💕'
-        form.value = { name: '', number: '', attendance: '', message: '' }
-    } catch (err) {
-        message.value = 'Something went wrong. Please try again later.'
-    } finally {
-        loading.value = false
+            message.value = 'Thank you for your response! 💕'
+            form = { name: '', phoneNumber: '', attendance: '', message: '' }
+        } catch (err) {
+            console.log(err)
+            message.value = 'Something went wrong. Please try again later.'
+        } finally {
+            loading.value = false
+        }
     }
 }
 const updateCountdown = () => {
