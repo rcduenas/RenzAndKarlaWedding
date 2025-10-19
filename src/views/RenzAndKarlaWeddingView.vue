@@ -12,7 +12,7 @@
                         class="d-flex flex-column align-center">
                         <v-card class="count-box d-flex align-center justify-center pa-2 bg-secondary">
                             <span class="text-h6 font-weight-bold">{{ value.toString().padStart(2, '0')
-                            }}</span>
+                                }}</span>
                         </v-card>
                         <div class="text-body-2 mt-2 font-weight-meduim"
                             style="color: black; text-shadow: -1px -1px 0 white, 1px -1px 0 white, -1px  1px 0 white, 1px  1px 0 white;">
@@ -259,6 +259,9 @@
         <div class="text-center ma-4">
             <div style="font-family: 'Great Vibes', cursive; font-size: 2rem;">RSVP</div>
             <v-card class="bg-white text-justify pa-4">
+                <v-alert v-if="message" class="mb-4" type="success" variant="tonal" dismissible>
+                    {{ message }}
+                </v-alert>
                 <v-form ref="rsvpFormRef" v-model="valid">
                     <v-text-field v-model="form.name" label="Your Name *" variant="outlined"
                         :rules="[v => !!v || 'Name is required']"></v-text-field>
@@ -271,9 +274,6 @@
                         Submit
                     </v-btn>
                 </v-form>
-                <v-alert v-if="message" class="mt-4" type="success" variant="tonal" dismissible>
-                    {{ message }}
-                </v-alert>
             </v-card>
         </div>
     </div>
@@ -310,12 +310,16 @@ const submitRSVP = async () => {
             // Replace this with your actual backend or Google Script endpoint
             await fetch('https://script.google.com/macros/s/AKfycbyDzd0l-CSZ7QCl6Iw-kZTDSvLOy3T0mLAxPnuQZuVcEF5__K2W1QGtyCF0xjrUT-NE/exec', {
                 method: 'POST',
+                mode: 'no-cors',
                 headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify(form.value)
+                body: JSON.stringify(form)
             })
 
             message.value = 'Thank you for your response! 💕'
-            form = { name: '', phoneNumber: '', attendance: '', message: '' }
+            form.name = '';
+            form.number = '';
+            form.attendance = '';
+            form.message = '';
         } catch (err) {
             console.log(err)
             message.value = 'Something went wrong. Please try again later.'
