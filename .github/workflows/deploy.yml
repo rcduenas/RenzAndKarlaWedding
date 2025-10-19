@@ -3,7 +3,10 @@ name: Build and Deploy
 on:
   push:
     branches:
-      - main  # Runs when you push to main
+      - main
+
+permissions:
+  contents: write    # 👈 this line is the key fix
 
 jobs:
   build-and-deploy:
