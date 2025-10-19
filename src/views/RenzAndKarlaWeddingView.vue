@@ -1,23 +1,24 @@
 <template>
-    <div class="bg-primary">
+    <div class="bg-primary pb-4">
         <div>
             <v-img :src="$vuetify.display.mdAndUp ? homeImage1 : homeImage" width="100wh"
                 :cover="$vuetify.display.mdAndUp ? true : false" class="d-flex align-end justify-center">
                 <v-img :src="monogram" width="100wh" />
                 <div class="text-center text-white">
-                    <v-btn color="secondary" size="large" to="/rsvp" elevation="2">RSVP Now</v-btn>
+                    <v-btn color="secondary" size="small" to="/rsvp" elevation="2">RSVP Now</v-btn>
                 </div>
                 <v-row class="justify-center mt-4" dense>
                     <v-col v-for="(value, key, i) in countdown" :key="key" cols="2" sm="1"
                         class="d-flex flex-column align-center">
-                        <v-card class="count-box d-flex align-center justify-center pa-2 bg-secondary">
-                            <span class="text-h4 font-weight-bold">{{ value.toString().padStart(2, '0') }}</span>
+                        <v-card class="count-box d-flex align-center justify-center pa-2">
+                            <span class="text-h6 font-weight-bold">{{ value.toString().padStart(2, '0')
+                            }}</span>
                         </v-card>
                         <div class="text-body-2 mt-2 font-weight-meduim"
                             style="color: black; text-shadow: -1px -1px 0 white, 1px -1px 0 white, -1px  1px 0 white, 1px  1px 0 white;">
                             {{ key }}
                         </div>
-                        <div v-if="i < Object.keys(countdown).length - 1" class="divider-dot">:</div>
+                        <div v-if="i < Object.keys(countdown).length - 1" class="divider-dot"></div>
                     </v-col>
                 </v-row>
             </v-img>
@@ -108,27 +109,65 @@
         <div class="ma-4">
             <div class="text-center" style="font-family: 'Great Vibes', cursive; font-size: 2rem;">Your Questions,
                 Answered</div>
-            <v-expansion-panels>
-                <v-expansion-panel class="my-1" title="RSVP"
-                    text="As much as we would love to accommodate all our friends and family, we have a limited number of guests. Please understand that this event is strictly by invitation only. Guests not found on the guest list provided will not be allowed to enter. \nThe favor of a reply is required on or before November 20, 2025." />
-                <v-expansion-panel class="my-1" title="Is there parking space available for my car?"
-                    text="Yes, there is parking available for everyone at the venue. However, please take note that it is first come, first served basis, so you might not want to be late." />
-                <v-expansion-panel class="my-1"
-                    title='I said "NO" to the RSVP but I had a change of plans-I can attend now! What should I do?'>
-                    <template #text>
+            <v-expansion-panels variant="accordion">
+                <v-expansion-panel class="my-1">
+                    <v-expansion-panel-title static color="secondary" class="font-weight-bold">
+                        <v-icon start color="white">mdi-email-outline</v-icon>RSVP
+                    </v-expansion-panel-title>
+                    <v-expansion-panel-text>
+                        <div class="text-justify">
+                            As much as we would love to accommodate all our friends and family, we have a limited number
+                            of guests. Please understand that this event is strictly by invitation only. Guests not
+                            found on the guest list provided will not be allowed to enter. <br><br>The favor of a reply
+                            is
+                            required on or before November 20, 2025.
+                        </div>
+                    </v-expansion-panel-text>
+                </v-expansion-panel>
+                <v-expansion-panel class="my-1">
+                    <v-expansion-panel-title static color="secondary" class="font-weight-bold">
+                        <v-icon start color="white">mdi-car</v-icon>Is there parking space available for my car?
+                    </v-expansion-panel-title>
+                    <v-expansion-panel-text>
+                        <div class="text-justify">
+                            Yes, there is parking available for everyone at the venue. However, please take note that it
+                            is first come, first served basis, so you might not want to be late.
+                        </div>
+                    </v-expansion-panel-text>
+                </v-expansion-panel>
+                <v-expansion-panel class="my-1">
+                    <v-expansion-panel-title static color="secondary" class="font-weight-bold">
+                        <v-icon start color="white">mdi-list-status</v-icon>I said "NO" to the RSVP but I had a change
+                        of plans-I
+                        can attend now! What should I do?
+                    </v-expansion-panel-title>
+                    <v-expansion-panel-text>
                         <ul class="pl-4">
                             <li>Please check with us first. Unfortunately, we have a strict guest list.</li>
                             <li>Kindly inform us if your schedule clears up, so we can try to accommodate you.</li>
                             <li>If seats become available, we will let you know as soon as possible.</li>
                             <li>Please do not attend unannounced, as we may not have any available seats for you.</li>
                         </ul>
-                    </template>
+                    </v-expansion-panel-text>
                 </v-expansion-panel>
-                <v-expansion-panel class="my-1" title="When is the appropriate time to leave?"
-                    text="This event took us months to plan, and we want to celebrate it with the people that are very dear to our hearts. We want you to have fun! Celebrate with us until the end of the program!" />
-                <v-expansion-panel class="my-1"
-                    title="How can I help the couple have a great time during their wedding?">
-                    <template #text>
+                <v-expansion-panel class="my-1">
+                    <v-expansion-panel-title static color="secondary" class="font-weight-bold">
+                        <v-icon start color="white">mdi-hand-wave</v-icon>When is the appropriate time to leave?
+                    </v-expansion-panel-title>
+                    <v-expansion-panel-text>
+                        <div class="text-justify">
+                            This event took us months to plan, and we want to celebrate it with the people that are very
+                            dear to our hearts. We want you to have fun! Celebrate with us until the end of the program!
+                        </div>
+                    </v-expansion-panel-text>
+                </v-expansion-panel>
+                <v-expansion-panel class="my-1">
+                    <v-expansion-panel-title static color="secondary" class="font-weight-bold">
+                        <v-icon start color="white">mdi-party-popper</v-icon>How can I help the couple have a great time
+                        during their
+                        wedding?
+                    </v-expansion-panel-title>
+                    <v-expansion-panel-text>
                         <ul class="pl-4">
                             <li>Pray with us for favorable weather and the continuous blessings of our Lord as we enter
                                 this new chapter of our lives as husband and wife.</li>
@@ -139,18 +178,76 @@
                             <li>Stay until the end of the program.</li>
                             <li>Join the activities and enjoy!</li>
                         </ul>
-                    </template>
+                    </v-expansion-panel-text>
                 </v-expansion-panel>
-                <v-expansion-panel class="my-1" title='May I invite a "PLUS ONE" to the event?'
-                    text="As much as we would love to accommodate all our friends and family, we have a limited number of guests.\nPlease understand that this event is strictly by invitation only. Kindly check our invitation to know the number of seats allotted for you. Guests not found on the guestlist provided will not be allowed to enter." />
-                <v-expansion-panel class="my-1" title="What if I RSVP'd but cannot attend?"
-                    text="We would love to have you at our wedding, but we understand that there are circumstances beyond our control. However, please let us know as soon as possible so we can reallocate your seat/s." />
-                <v-expansion-panel class="my-1" title="Can I sit anywhere at the reception?"
-                    text="Please don't. It took us a lot of effort and discussion to finish the seating arrangement, which is planned for everyone's convenience and preference, but there is no need to worry! You'll surely be seated with your friends or people that you have same interest with.\nOur coordinators will gladly assist you in finding your designated seat after registration. Feel free to ask them for assistance and they will gladly help you." />
-                <v-expansion-panel class="my-1" title="Am I allowed to take pictures and/or videos during the ceremony?"
-                    text="We request everyone to keep the ceremony camera-free. While our I Do’s are unplugged, our reception is not and definitely as a couple who loves pictures, you’ll get tons of options to take your pictures. We prepared for this event wholeheartedly." />
-                <v-expansion-panel class="my-1" title='Do we really need to RSVP? We already said "YES" to the couple?'
-                    text="Yes, please. We will be needing your formal RSVP to consolidate guest details and finalize the headcount for catering and seating purposes." />
+                <v-expansion-panel class="my-1">
+                    <v-expansion-panel-title static color="secondary" class="font-weight-bold">
+                        <v-icon start color="white">mdi-account-plus</v-icon>May I invite a "PLUS ONE" to the event?
+                    </v-expansion-panel-title>
+                    <v-expansion-panel-text>
+                        <div class="text-justify">
+                            As much as we would love to accommodate all our friends and family, we have a limited number
+                            of guests.<br><br>Please understand that this event is strictly by invitation only. Kindly
+                            check
+                            our invitation to know the number of seats allotted for you. Guests not found on the
+                            guestlist provided will not be allowed to enter.
+                        </div>
+                    </v-expansion-panel-text>
+                </v-expansion-panel>
+                <v-expansion-panel class="my-1">
+                    <v-expansion-panel-title static color="secondary" class="font-weight-bold">
+                        <v-icon start color="white">mdi-calendar-remove</v-icon>What if I RSVP'd but cannot attend?
+                    </v-expansion-panel-title>
+                    <v-expansion-panel-text>
+                        <div class="text-justify">
+                            We would love to have you at our wedding, but we understand that there are circumstances
+                            beyond our control. However, please let us know as soon as possible so we can reallocate
+                            your seat/s.
+                        </div>
+                    </v-expansion-panel-text>
+                </v-expansion-panel>
+                <v-expansion-panel class="my-1">
+                    <v-expansion-panel-title static color="secondary" class="font-weight-bold">
+                        <v-icon start color="white">mdi-table-chair</v-icon>Can I sit anywhere at the reception?
+                    </v-expansion-panel-title>
+                    <v-expansion-panel-text>
+                        <div class="text-justify">
+                            Please don't. It took us a lot of effort and discussion to finish the seating arrangement,
+                            which is planned for everyone's convenience and preference, but there is no need to worry!
+                            You'll surely be seated with your friends or people that you have same interest
+                            with.<br><br>Our
+                            coordinators will gladly assist you in finding your designated seat after registration. Feel
+                            free to ask them for assistance and they will gladly help you.
+                        </div>
+                    </v-expansion-panel-text>
+                </v-expansion-panel>
+                <v-expansion-panel class="my-1">
+                    <v-expansion-panel-title static color="secondary" class="font-weight-bold">
+                        <v-icon start color="white">mdi-camera</v-icon>Am I allowed to take pictures and/or videos
+                        during the
+                        ceremony?
+                    </v-expansion-panel-title>
+                    <v-expansion-panel-text>
+                        <div class="text-justify">
+                            We request everyone to keep the ceremony camera-free. While our I Do’s are unplugged, our
+                            reception is not and definitely as a couple who loves pictures, you’ll get tons of options
+                            to take your pictures. We prepared for this event wholeheartedly.
+                        </div>
+                    </v-expansion-panel-text>
+                </v-expansion-panel>
+                <v-expansion-panel class="my-1">
+                    <v-expansion-panel-title static color="secondary" class="font-weight-bold">
+                        <v-icon start color="white">mdi-check-circle-outline</v-icon>Do we really need to RSVP? We
+                        already said "YES" to the
+                        couple?
+                    </v-expansion-panel-title>
+                    <v-expansion-panel-text>
+                        <div class="text-justify">
+                            Yes, please. We will be needing your formal RSVP to consolidate guest details and finalize
+                            the headcount for catering and seating purposes.
+                        </div>
+                    </v-expansion-panel-text>
+                </v-expansion-panel>
             </v-expansion-panels>
         </div>
         <div class="text-center ma-4">
@@ -163,18 +260,19 @@
             <div style="font-family: 'Great Vibes', cursive; font-size: 2rem;">RSVP</div>
             <v-card class="bg-white text-justify pa-4">
                 <v-form @submit.prevent="submitRSVP" ref="form">
-                    <v-text-field v-model="form.name" label="Your Name" required></v-text-field>
+                    <v-text-field v-model="form.name" label="Your Name" variant="outlined" required></v-text-field>
+                    <v-text-field v-model="form.number" label="Phone Number (optional)"
+                        variant="outlined"></v-text-field>
                     <v-select v-model="form.attendance" :items="['Yes', 'No']" label="Will you attend?"
-                        required></v-select>
-                    <v-text-field v-model="form.guests" label="Number of Guests" type="number"></v-text-field>
-                    <v-textarea v-model="form.message" label="Message (optional)"></v-textarea>
+                        variant="outlined" required></v-select>
+                    <v-textarea v-model="form.message" label="Message (optional)" variant="outlined"></v-textarea>
                     <v-btn color="primary" type="submit" class="mt-4">Send RSVP</v-btn>
                 </v-form>
             </v-card>
         </div>
+        <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
+        </link>
     </div>
-    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
-    </link>
 </template>
 <script setup>
 import homeImage from '../assets/images/Home.jpg'
@@ -187,11 +285,27 @@ import { ref, onMounted } from 'vue'
 
 const weddingDate = new Date('2025-12-12T00:00:00')
 const countdown = ref({ Days: 0, Hours: 0, Minutes: 0, Seconds: 0 })
-const form = ref({ name: '', attendance: '', guests: 0, message: '' })
+const form = ref({ name: '', number: '', attendance: '', message: '' })
 
-const submitRSVP = () => {
-    console.log('RSVP:', form.value)
-    alert(`Thank you, ${form.value.name}! Your RSVP has been recorded.`)
+async function submitRSVP() {
+    if (!valid.value) return
+
+    loading.value = true
+    try {
+        // Replace this with your actual backend or Google Script endpoint
+        await fetch('https://script.google.com/macros/s/AKfycbyDzd0l-CSZ7QCl6Iw-kZTDSvLOy3T0mLAxPnuQZuVcEF5__K2W1QGtyCF0xjrUT-NE/exec', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(form.value)
+        })
+
+        message.value = 'Thank you for your response! 💕'
+        form.value = { name: '', number: '', attendance: '', message: '' }
+    } catch (err) {
+        message.value = 'Something went wrong. Please try again later.'
+    } finally {
+        loading.value = false
+    }
 }
 const updateCountdown = () => {
     const now = new Date()
