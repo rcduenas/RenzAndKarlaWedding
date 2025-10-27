@@ -6,7 +6,7 @@ on:
       - main
 
 permissions:
-  contents: write    # 👈 this line is the key fix
+  contents: write
 
 jobs:
   build-and-deploy:
@@ -20,15 +20,17 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: 20
+          cache: 'npm' # ✅ speeds up installs
 
       - name: Install dependencies
         run: npm ci
 
-      - name: Build
+      - name: Build project
         run: npm run build
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v4
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: dist
+          publish_dir: ./dist
+          publish_branch: gh-pages  # ✅ ensures correct branch
