@@ -1,13 +1,13 @@
 <template>
     <div class="bg-primary pb-4">
-        <div>
-            <v-img :src="$vuetify.display.mdAndUp ? homeImage1 : homeImage" width="100wh"
-                :cover="$vuetify.display.mdAndUp ? true : false" class="d-flex align-end justify-center">
-                <v-img :src="monogram" width="100wh" />
+        <div id="home">
+            <v-img :src="homeImage" width="100wh" :cover="$vuetify.display.mdAndUp ? true : false"
+                class="d-flex align-end justify-center">
+                <v-img :src="monogram" :width="$vuetify.display.mdAndUp ? '50%' : '100%'" />
                 <div class="text-center text-white">
-                    <v-btn color="secondary" size="small" to="/rsvp" elevation="2">RSVP Now</v-btn>
+                    <v-btn color="secondary" size="small" @click="scrollToRsvp" elevation="2">RSVP Now</v-btn>
                 </div>
-                <v-row class="justify-center mt-4" dense>
+                <v-row class="justify-center my-4" dense>
                     <v-col v-for="(value, key, i) in countdown" :key="key" cols="2" sm="1"
                         class="d-flex flex-column align-center">
                         <v-card class="count-box d-flex align-center justify-center pa-2 bg-secondary">
@@ -26,24 +26,30 @@
 
         <!-- 🌿 Countdown Section -->
         <div class="pa-4 text-center">
-            <div class="py-3">WELCOME TO OUR WEDDING WEBSITE</div>
-            <div class="py-3">We can’t wait to celebrate our special day with you. Feel free to have fun to take a look
-                around. Thank
-                you for the love and support. We are so excited to share this day with you!</div>
-            <div class="py-3">As much as we love to invite everyone, we are only inviting you. We have chosen the people
-                close to our
-                hearts. We would not want anyone to lose a seat and want everyone to be able to enjoy a sumptuous meal.
-            </div>
+            <v-card class="bg-white">
+                <div class="pa-3">WELCOME TO OUR WEDDING WEBSITE</div>
+                <div class="pa-3">We can’t wait to celebrate our special day with you. Feel free to have fun to take a
+                    look
+                    around. Thank
+                    you for the love and support. We are so excited to share this day with you!</div>
+                <div class="pa-3">As much as we love to invite everyone, we are only inviting you. We have chosen the
+                    people
+                    close to our
+                    hearts. We would not want anyone to lose a seat and want everyone to be able to enjoy a sumptuous
+                    meal.
+                </div>
+            </v-card>
         </div>
 
-        <v-carousel>
-            <v-carousel-item src="https://cdn.vuetifyjs.com/images/cards/docks.jpg" cover></v-carousel-item>
-            <v-carousel-item src="https://cdn.vuetifyjs.com/images/cards/hotel.jpg" cover></v-carousel-item>
-            <v-carousel-item src="https://cdn.vuetifyjs.com/images/cards/sunshine.jpg" cover></v-carousel-item>
+        <v-carousel :show-arrows="false" cycle hide-delimiters style="height:auto; overflow:hidden;">
+            <v-carousel-item :src="carousel11" />
+            <v-carousel-item :src="carousel12" />
+            <v-carousel-item :src="carousel13" />
+            <v-carousel-item :src="carousel14" />
         </v-carousel>
 
         <!-- 🌸 Quote Section -->
-        <div class="mt-4 px-4 text-center">
+        <div class="mt-4 px-4 text-center" id="story">
             <v-card class="bg-white text-justify">
                 <div class="pa-3">Our Love Story</div>
                 <div class="pa-3">A Love That Crossed Boundaries In the heart of 2018, in the bustling digital landscape
@@ -83,30 +89,63 @@
                 </div>
             </v-card>
         </div>
-        <div class="text-center ma-4">
+        <div class="text-center ma-4" id="sponsors">
             <div style="font-family: 'Great Vibes', cursive; font-size: 2rem;">
                 Sponsors</div>
             <v-img :src="entourage" width="100wh" rounded="lg" class="my-4" />
             <v-img :src="entourage" width="100wh" rounded="lg" />
         </div>
-        <div class="text-center ma-4">
+
+        <v-carousel :show-arrows="false" cycle hide-delimiters style="height:auto; overflow:hidden;">
+            <v-carousel-item :src="carousel4" />
+            <v-carousel-item :src="carousel5" />
+            <v-carousel-item :src="carousel6" />
+        </v-carousel>
+
+        <div class="text-center ma-4" id="dress">
             <div style="font-family: 'Great Vibes', cursive; font-size: 2rem;">Dress Code</div>
             <v-img :src="dressCode" width="100wh" rounded="lg" class="my-4" />
             <v-img :src="dressCode" width="100wh" rounded="lg" />
         </div>
-        <div class="text-center ma-4">
+        <div class="text-center ma-4" id="venue">
             <div style="font-family: 'Great Vibes', cursive; font-size: 2rem;">Venue</div>
-            <v-carousel>
-                <v-carousel-item src="https://cdn.vuetifyjs.com/images/cards/docks.jpg" cover></v-carousel-item>
-                <v-carousel-item src="https://cdn.vuetifyjs.com/images/cards/hotel.jpg" cover></v-carousel-item>
-                <v-carousel-item src="https://cdn.vuetifyjs.com/images/cards/sunshine.jpg" cover></v-carousel-item>
+            <v-carousel :show-arrows="false" cycle hide-delimiter-background
+                style="height:auto; overflow:hidden; overlay: 1px;">
+                <v-carousel-item :src="church">
+                    <div
+                        style="position:absolute; inset:0; background:rgba(0,0,0,0.4); display:flex; flex-direction: column; align-items:center; justify-content:center; color:white; font-size:1rem; font-weight:500; ">
+                        <div style="font-family: 'Georgia', serif; color:white; font-size:2rem; font-weight:500;">
+                            Ceremony</div>
+                        <div style="color:white; font-size:1rem; font-weight:500;">Minor Basilica of St. Michael the
+                            Archangel</div>
+                        <v-btn class="mt-2" color="secondary" size="small"
+                            href="https://www.google.com/maps/place/Minor+Basilica+and+Parish+of+St.+Michael+the+Archangel/@14.0259915,121.5884058,17z/data=!3m1!4b1!4m6!3m5!1s0x33bd4d7d0753897f:0xe0dda9263f349499!8m2!3d14.0259863!4d121.5909807!16s%2Fm%2F064nmk0?entry=ttu&g_ep=EgoyMDI1MTAyMi4wIKXMDSoASAFQAw%3D%3D"
+                            elevation="2">View Map
+                        </v-btn>
+                    </div>
+                </v-carousel-item>
+                <v-carousel-item :src="venue">
+                    <div
+                        style="position:absolute; inset:0; background:rgba(0,0,0,0.4); display:flex; flex-direction: column; align-items:center; justify-content:center;">
+                        <div style="font-family: 'Georgia', serif; color:white; font-size:2rem; font-weight:500;">
+                            Reception</div>
+                        <div style="color:white; font-size:1rem; font-weight:500;">La Casa Esperanza</div>
+                        <v-btn class="mt-2" color="secondary" size="small"
+                            href="https://www.google.com/maps/place/La+Casa+Esperanza+Catering+Services/@14.0210694,121.6021204,17z/data=!4m14!1m7!3m6!1s0x33bd4d57abf2594d:0xd78928bc8b0cee05!2sLa+Casa+Esperanza!8m2!3d14.0207363!4d121.6060686!16s%2Fg%2F11h5rz9mrd!3m5!1s0x33bd4d9abd7f29df:0xf5cd571f750537c0!8m2!3d14.0214297!4d121.6038791!16s%2Fg%2F11s___hs61?entry=ttu&g_ep=EgoyMDI1MTAyMi4wIKXMDSoASAFQAw%3D%3D"
+                            elevation="2">View Map
+                        </v-btn>
+                    </div>
+                </v-carousel-item>
             </v-carousel>
         </div>
-        <div class="text-center ma-4">
+        <div class="text-center ma-4" id="timeline">
             <div style="font-family: 'Great Vibes', cursive; font-size: 2rem;">Timeline</div>
             <v-img :src="timeline" width="100wh" rounded="lg" class="my-4" />
         </div>
-        <div class="ma-4">
+
+        <v-img :src="end" width="100wh" />
+
+        <div class="ma-4" id="qa">
             <div class="text-center" style="font-family: 'Great Vibes', cursive; font-size: 2rem;">Your Questions,
                 Answered</div>
             <v-expansion-panels variant="accordion">
@@ -250,7 +289,7 @@
                 </v-expansion-panel>
             </v-expansion-panels>
         </div>
-        <div class="text-center ma-4">
+        <div class="text-center ma-4" id="prenup">
             <div style="font-family: 'Great Vibes', cursive; font-size: 2rem;">Prenup Photos</div>
             <v-img :src="monogram" width="100wh" class="mb-auto" />
             <v-img :src="monogram" width="100wh" class="mb-auto" />
@@ -262,7 +301,7 @@
                 <v-alert v-if="message" class="mb-4" type="success" variant="tonal" dismissible>
                     {{ message }}
                 </v-alert>
-                <v-form ref="rsvpFormRef" v-model="valid">
+                <v-form ref="rsvpFormRef" v-model="valid" id="rsvp">
                     <v-text-field v-model="form.name" label="Your Name *" variant="outlined"
                         :rules="[v => !!v || 'Name is required']"></v-text-field>
                     <v-text-field v-model="form.number" label="Phone Number (optional)"
@@ -283,6 +322,16 @@
 <script setup>
 import homeImage from '../assets/images/Home.jpg'
 import homeImage1 from '../assets/images/Home1.jpg'
+import carousel11 from '../assets/images/Carousel11.jpg'
+import carousel12 from '../assets/images/Carousel12.jpg'
+import carousel13 from '../assets/images/Carousel13.jpg'
+import carousel14 from '../assets/images/Carousel14.jpeg'
+import carousel4 from '../assets/images/Carousel4.jpg'
+import carousel5 from '../assets/images/Carousel5.jpg'
+import carousel6 from '../assets/images/Carousel6.jpg'
+import end from '../assets/images/End.jpg'
+import venue from '../assets/images/Venue.png'
+import church from '../assets/images/Church.png'
 import monogram from '../assets/images/Monogram.png'
 import entourage from '../assets/images/Entourage1.webp'
 import dressCode from '../assets/images/Dress Code.jpg'
@@ -301,6 +350,11 @@ const form = reactive({
     attendance: '',
     message: ''
 })
+
+const scrollToRsvp = () => {
+    const el = document.getElementById('rsvp')
+    if (el) el.scrollIntoView({ behavior: 'smooth' })
+}
 
 const submitRSVP = async () => {
     const { valid } = await rsvpFormRef.value.validate();
