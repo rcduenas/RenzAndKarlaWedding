@@ -26,90 +26,94 @@
 
         <!-- 🌿 Countdown Section -->
         <div class="pa-4 text-center">
-            <v-card class="bg-white">
-                <div class="pa-3">WELCOME TO OUR WEDDING WEBSITE</div>
-                <div class="pa-3">We can’t wait to celebrate our special day with you. Feel free to have fun to take a
-                    look
-                    around. Thank
-                    you for the love and support. We are so excited to share this day with you!</div>
-                <div class="pa-3">As much as we love to invite everyone, we are only inviting you. We have chosen the
-                    people
-                    close to our
-                    hearts. We would not want anyone to lose a seat and want everyone to be able to enjoy a sumptuous
-                    meal.
+            <v-card class="bg-white" rounded="large">
+                <div class="pt-3 px-3">WELCOME TO OUR WEDDING WEBSITE</div>
+                <div class="text-caption text-justify pl-4">
+                    <div class="pa-3">We’re beyond excited to celebrate our special day with you! Take your time
+                        exploring
+                        our page — we’re so grateful for your love and support, and we can’t wait to share this
+                        unforgettable moment together.</div>
+                    <div class="pa-3">While we would love to invite everyone, this celebration is an intimate gathering
+                        with
+                        our dearest family and friends. We truly appreciate your understanding, as we want to ensure
+                        every
+                        guest has a seat and enjoys a delightful meal.
+                    </div>
                 </div>
             </v-card>
         </div>
 
-        <v-carousel :show-arrows="false" cycle hide-delimiters style="height:auto; overflow:hidden;">
-            <v-carousel-item :src="carousel11" />
-            <v-carousel-item :src="carousel12" />
-            <v-carousel-item :src="carousel13" />
-            <v-carousel-item :src="carousel14" />
+        <v-carousel :show-arrows="false" cycle hide-delimiters style="height:300px; overflow:hidden;">
+            <v-carousel-item v-for="(src, i) in carouselItems" :key="i" :src="src" reverse-transition="fade-transition"
+                transition="fade-transition" cover></v-carousel-item>
         </v-carousel>
 
         <!-- 🌸 Quote Section -->
-        <div class="mt-4 px-4 text-center" id="story">
-            <v-card class="bg-white text-justify">
-                <div class="pa-3">Our Love Story</div>
-                <div class="pa-3">A Love That Crossed Boundaries In the heart of 2018, in the bustling digital landscape
-                    of a dating app, two souls connected amidst the sea of profiles and messages. He was a Tarlaqueño,
-                    juggling the roles of a security personnel and financial advisor in Parañaque. She was a Batangueña,
-                    on the cusp of graduating college and navigating her internship in Manila. Their encounter was
-                    serendipitous—a spark in the vast expanse of online dating.</div>
-                <div class="pa-3">Their initial interactions were casual, filled with playful banter and shared
-                    interests. He, with his goofy humor, quickly drew out her shy smile. She, in turn, brought a calming
-                    presence to their conversations. They discovered a rhythm in their exchanges, a sense of comfort
-                    that made their budding friendship feel effortless. </div>
-                <div class="pa-3">Determined to see if their online connection could translate into real-life chemistry,
-                    they decided to meet in person. The first meeting was filled with nervous laughter and tentative
-                    glances, but their ease with each other was undeniable. Their relationship blossomed quickly, with
-                    shared moments that turned into memories, laughter that grew into affection.</div>
-                <div class="pa-3">As her birthday approached later that year, he decided it was the perfect moment to
-                    take their relationship to the next level. With a heart full of hope and a touch of nervousness, he
-                    asked her to be his girlfriend. The proposal was simple but sincere, marked by a heartfelt promise
-                    of his commitment and love.</div>
-                <div class="pa-3">Their journey together was filled with dreams and challenges. He pursued a career with
-                    the Coast Guard, undergoing months of rigorous training. The physical and emotional distance was
-                    tough, but she stood by him, a steadfast source of support. Knowing about the scarcity of supplies
-                    at the training center, she found ways to send him food and essentials, bridging the gap between
-                    their worlds with each package and letter—what they referred to as “take life”. </div>
-                <div class="pa-3">Her patience during this period was a testament to her love and dedication. Meanwhile,
-                    she was also on her own path, trying to carve out a future in a career that would fulfill her
-                    ambitions. His support was unwavering, as he encouraged her through the uncertainties and decisions
-                    that shaped her journey.</div>
-                <div class="pa-3">Their love story was marked by these trials and triumphs, each phase strengthening
-                    their bond. As he completed his training and graduated, they celebrated not only his achievement but
-                    their resilience as a couple. They worked together towards their dreams and the shared vision of a
-                    future built on mutual love and respect, and supported by their fur babies— Coastal, Sinigang, Milky
-                    and Tingku.
-                    When he decided it was time to propose, he wanted to make it a moment that would honor their shared
-                    journey and the support they received from their families. With this in his mind, he approached her
-                    family to ask for their blessing, revealing his plans and the love he held for their daughter.
+        <div class="px-4 text-center" id="story" style="margin-top: -1rem;">
+            <v-card rounded="large" class="bg-white pr-2">
+                <div class="pt-3 px-3 text-center" style="font-family: 'Great Vibes', cursive; font-size: 1.5rem;">
+                    A Love Written by Fate ❤️</div>
+                <div class="text-caption text-justify pl-4">
+                    <div class="pa-3">In August 2023, at the most unexpected moment and under the most unlikely
+                        circumstances, Karla and Renz’s paths crossed — a meeting that would change their lives forever.
+                    </div>
+                    <div class="pa-3">Karla was going through a difficult time, but as always, God works in mysterious
+                        and wonderful ways. He used two instruments to bring light into her life: her first cousins
+                        Jesper and Jewo — the best friend of the groom.</div>
+                    <div class="pa-3">During a casual conversation, Jesper mentioned that Renz was single and might be a
+                        good match for Karla. Jewo, ever the joker, teased Karla that his best friend would come all the
+                        way to meet her if she agreed. Thinking it was just another one of Jewo’s playful antics —
+                        especially since Canlubang was far from Agdangan — Karla said yes, not expecting anything to
+                        come of it.
+                        But to her surprise, Renz did come. He traveled all the way, and Jewo introduced him to Karla.
+                        That moment marked the beginning of their love story.</div>
+                    <div class="pa-3">Their first date was spent at Padre Pio in Sto. Tomas, Batangas, with a chaperone
+                        😂— both of them shy and unsure, yet curious about what destiny had in store. From that day
+                        forward, they exchanged messages daily, never missing a single one. Through endless
+                        conversations and heartfelt exchanges, they discovered a growing affection that neither of them
+                        could ignore.</div>
+                    <div class="pa-3">Eventually, they realized they had fallen for each other. It felt as though they
+                        had known one another for years — perhaps that’s what we call Tadhana (destiny).</div>
+                    <div class="pa-3">Their journey wasn’t always easy. They were still getting to know each other,
+                        learning to adjust and compromise. Renz, calm and reserved, balanced Karla’s cheerful and bubbly
+                        nature. There were moments of tampuhan (silent misunderstandings) and even small disagreements,
+                        but each challenge only deepened their bond and strengthened their love.
+                    </div>
+                    <div class="pa-3">Then, on January 11, Renz got down on one knee and proposed. Without hesitation,
+                        Karla said yes.
+                    </div>
+                    <div class="pa-3">And just like that, a love story born from a joke, a long drive, and a leap of
+                        faith became a beautiful tale of destiny fulfilled.
+                    </div>
                 </div>
             </v-card>
         </div>
         <div class="text-center ma-4" id="sponsors">
-            <div style="font-family: 'Great Vibes', cursive; font-size: 2rem;">
-                Sponsors</div>
-            <v-img :src="entourage" width="100wh" rounded="lg" class="my-4" />
-            <v-img :src="entourage" width="100wh" rounded="lg" />
+            <v-img :src="sponsors1" width="100wh" />
+            <v-img :src="sponsors2" width="100wh" />
+            <v-img :src="sponsors3" width="100wh" />
         </div>
 
         <v-carousel :show-arrows="false" cycle hide-delimiters style="height:auto; overflow:hidden;">
+            <v-carousel-item :src="carousel1" />
+            <v-carousel-item :src="carousel2" />
+            <v-carousel-item :src="carousel3" />
             <v-carousel-item :src="carousel4" />
             <v-carousel-item :src="carousel5" />
             <v-carousel-item :src="carousel6" />
+            <v-carousel-item :src="carousel7" />
+            <v-carousel-item :src="carousel8" />
+            <v-carousel-item :src="carousel9" />
         </v-carousel>
 
-        <div class="text-center ma-4" id="dress">
+        <div class="text-center my-4" id="dress">
             <div style="font-family: 'Great Vibes', cursive; font-size: 2rem;">Dress Code</div>
-            <v-img :src="dressCode" width="100wh" rounded="lg" class="my-4" />
-            <v-img :src="dressCode" width="100wh" rounded="lg" />
+            <v-img :src="dressCode1" width="100wh" />
+            <v-img :src="dressCode2" width="100wh" />
         </div>
         <div class="text-center ma-4" id="venue">
             <div style="font-family: 'Great Vibes', cursive; font-size: 2rem;">Venue</div>
-            <v-carousel :show-arrows="false" cycle hide-delimiter-background
+            <v-carousel :show-arrows="false" cycle hide-delimiter-background class="mt-6"
                 style="height:auto; overflow:hidden; overlay: 1px;">
                 <v-carousel-item :src="church">
                     <div
@@ -137,10 +141,6 @@
                     </div>
                 </v-carousel-item>
             </v-carousel>
-        </div>
-        <div class="text-center ma-4" id="timeline">
-            <div style="font-family: 'Great Vibes', cursive; font-size: 2rem;">Timeline</div>
-            <v-img :src="timeline" width="100wh" rounded="lg" class="my-4" />
         </div>
 
         <v-img :src="end" width="100wh" />
@@ -290,20 +290,27 @@
             </v-expansion-panels>
         </div>
         <div class="text-center ma-4" id="prenup">
-            <div style="font-family: 'Great Vibes', cursive; font-size: 2rem;">Prenup Photos</div>
-            <v-img :src="monogram" width="100wh" class="mb-auto" />
-            <v-img :src="monogram" width="100wh" class="mb-auto" />
-            <v-img :src="monogram" width="100wh" class="mb-auto" />
+            <div style="font-family: 'Great Vibes', cursive; font-size: 2rem;">Prenup</div>
+            <v-responsive>
+                <iframe src="https://www.youtube.com/embed/9NHBMP6u74U" width="100%" height="100%"
+                    style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true"
+                    allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe>
+            </v-responsive>
         </div>
         <div class="text-center ma-4">
             <div style="font-family: 'Great Vibes', cursive; font-size: 2rem;">RSVP</div>
             <v-card class="bg-white text-justify pa-4">
-                <v-alert v-if="message" class="mb-4" type="success" variant="tonal" dismissible>
+                <v-alert v-if="message" class="mb-4"
+                    :type="message == 'Thank you for your response! 💕' ? 'success' : 'error'" variant="tonal"
+                    dismissible>
                     {{ message }}
                 </v-alert>
                 <v-form ref="rsvpFormRef" v-model="valid" id="rsvp">
-                    <v-text-field v-model="form.name" label="Your Name *" variant="outlined"
-                        :rules="[v => !!v || 'Name is required']"></v-text-field>
+                    <div class="text-caption mb-4">
+                        Please enter your name to search the guest list below:
+                    </div>
+                    <v-autocomplete v-model="form.name" :items="allowedGuests" label="Your Name *" variant="outlined"
+                        :rules="[v => !!v || 'Name is required']"></v-autocomplete>
                     <v-text-field v-model="form.number" label="Phone Number (optional)"
                         variant="outlined"></v-text-field>
                     <v-select v-model="form.attendance" :items="['Yes', 'No']" label="Will you attend? *"
@@ -313,6 +320,9 @@
                         Submit
                     </v-btn>
                 </v-form>
+                <div class="text-caption mt-2">
+                    Note: If you can’t find your name on the list, please don’t hesitate to message us.
+                </div>
             </v-card>
         </div>
     </div>
@@ -321,23 +331,59 @@
 </template>
 <script setup>
 import homeImage from '../assets/images/Home.jpg'
-import homeImage1 from '../assets/images/Home1.jpg'
-import carousel11 from '../assets/images/Carousel11.jpg'
-import carousel12 from '../assets/images/Carousel12.jpg'
-import carousel13 from '../assets/images/Carousel13.jpg'
-import carousel14 from '../assets/images/Carousel14.jpeg'
+import car1 from '../assets/images/Car1.jpg'
+import car2 from '../assets/images/Car2.jpg'
+import car3 from '../assets/images/Car3.jpg'
+import car4 from '../assets/images/Car4.jpg'
+import car5 from '../assets/images/Car5.jpg'
+import car6 from '../assets/images/Car6.jpg'
+import car7 from '../assets/images/Car7.jpg'
+import car8 from '../assets/images/Car8.jpg'
+import car9 from '../assets/images/Car9.jpg'
+import car10 from '../assets/images/Car10.jpg'
+import car11 from '../assets/images/Car11.jpg'
+import car12 from '../assets/images/Car12.jpg'
+import car13 from '../assets/images/Car13.jpg'
+import car14 from '../assets/images/Car14.jpg'
+import car15 from '../assets/images/Car15.jpg'
+import car16 from '../assets/images/Car16.jpg'
+import car17 from '../assets/images/Car17.jpg'
+import car18 from '../assets/images/Car18.jpg'
+import car19 from '../assets/images/Car19.jpg'
+import car20 from '../assets/images/Car20.jpg'
+import car21 from '../assets/images/Car21.jpg'
+import car22 from '../assets/images/Car22.jpg'
+import car23 from '../assets/images/Car23.jpg'
+import car24 from '../assets/images/Car24.jpg'
+import car25 from '../assets/images/Car25.jpg'
+import car26 from '../assets/images/Car26.jpg'
+import car27 from '../assets/images/Car27.jpg'
+import car28 from '../assets/images/Car28.jpg'
+import car29 from '../assets/images/Car29.jpg'
+import car30 from '../assets/images/Car30.jpeg'
+import car31 from '../assets/images/Car31.jpg'
+import car32 from '../assets/images/Car32.jpg'
+import carousel1 from '../assets/images/Carousel1.jpg'
+import carousel2 from '../assets/images/Carousel2.jpg'
+import carousel3 from '../assets/images/Carousel3.jpg'
 import carousel4 from '../assets/images/Carousel4.jpg'
 import carousel5 from '../assets/images/Carousel5.jpg'
 import carousel6 from '../assets/images/Carousel6.jpg'
+import carousel7 from '../assets/images/Carousel7.jpg'
+import carousel8 from '../assets/images/Carousel8.jpg'
+import carousel9 from '../assets/images/Carousel9.jpg'
 import end from '../assets/images/End.jpg'
+import sponsors1 from '../assets/images/Sponsors1.png'
+import sponsors2 from '../assets/images/Sponsors2.png'
+import sponsors3 from '../assets/images/Sponsors3.png'
+import dressCode1 from '../assets/images/1.png'
+import dressCode2 from '../assets/images/2.png'
 import venue from '../assets/images/Venue.png'
 import church from '../assets/images/Church.png'
 import monogram from '../assets/images/Monogram.png'
-import entourage from '../assets/images/Entourage1.webp'
-import dressCode from '../assets/images/Dress Code.jpg'
-import timeline from '../assets/images/Timeline.webp'
 import { ref, onMounted, reactive } from 'vue'
 
+const allowedGuests = ref([])
 const valid = ref(false)
 const loading = ref(false)
 const message = ref('')
@@ -351,37 +397,40 @@ const form = reactive({
     message: ''
 })
 
+const carouselItems = [car1, car2, car3, car4, car5, car6, car7, car8, car9, car10, car11, car12, car13, car14, car15, car16, car17, car18, car19, car20, car21, car22, car23, car24, car25, car26, car27, car28, car29, car30, car31, car32]
+
 const scrollToRsvp = () => {
     const el = document.getElementById('rsvp')
     if (el) el.scrollIntoView({ behavior: 'smooth' })
 }
 
 const submitRSVP = async () => {
-    const { valid } = await rsvpFormRef.value.validate();
-    if (valid) {
-        loading.value = true
-        try {
-            // Replace this with your actual backend or Google Script endpoint
-            await fetch('https://script.google.com/macros/s/AKfycbyDzd0l-CSZ7QCl6Iw-kZTDSvLOy3T0mLAxPnuQZuVcEF5__K2W1QGtyCF0xjrUT-NE/exec', {
-                method: 'POST',
-                mode: 'no-cors',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify(form)
-            })
+    const { valid } = await rsvpFormRef.value.validate()
+    if (!valid) return
 
-            message.value = 'Thank you for your response! 💕'
-            form.name = '';
-            form.number = '';
-            form.attendance = '';
-            form.message = '';
-        } catch (err) {
-            console.log(err)
-            message.value = 'Something went wrong. Please try again later.'
-        } finally {
-            loading.value = false
-        }
+    loading.value = true
+    try {
+        await fetch('https://script.google.com/macros/s/AKfycbxIK7tDhZffSLmWGHlzhnav00vojkLrEpUNJk0Wq4T9Q2ySbm715ZsCBSnC5CKkFGrN/exec', {
+            method: 'POST',
+            mode: 'no-cors',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(form)
+        })
+
+        message.value = 'Thank you for your response! 💕'
+        allowedGuests.value = allowedGuests.value.filter(item => item != form.name)
+        form.name = ''
+        form.number = ''
+        form.attendance = ''
+        form.message = ''
+    } catch (err) {
+        console.error(err)
+        message.value = 'Something went wrong. Please try again later.'
+    } finally {
+        loading.value = false
     }
 }
+
 const updateCountdown = () => {
     const now = new Date()
     const diff = weddingDate - now
@@ -399,21 +448,29 @@ const updateCountdown = () => {
     }
 }
 
-onMounted(() => {
+onMounted(async () => {
     updateCountdown()
     setInterval(updateCountdown, 1000)
+    try {
+        const guestRes = await fetch('https://docs.google.com/spreadsheets/d/e/2PACX-1vSjGNB-49I0IodhS5LuBXfbfzZjksVaDOO45qpoO1goV6U8WWZS1ppQ1Vt0gpWGvhnv8ICBr3Q5Yh5L/pub?gid=2089181879&single=true&output=csv')
+        const rsvpRes = await fetch('https://docs.google.com/spreadsheets/d/e/2PACX-1vTn9P227iJuLVtAIGgpVgh0pW70JWmloHkT_0aAEJmAECZIR7Jh0XKablqh56-_nieDmqzahv5SZJEj/pub?output=csv')
+        const guestText = await guestRes.text()
+        const rsvpText = await rsvpRes.text()
+        const guestLines = guestText.split('\n').map(line => line.trim()).filter(Boolean)
+        const rsvpLines = rsvpText.split('\n').map(line => line.trim()).filter(Boolean)
+
+        // Remove header row (if any)
+        const rsvpList = rsvpLines.slice(1).map(rLine => {
+            const name = rLine.split(',')[1].replace(/^"|"$/g, '').trim()
+            return name
+        })
+        const guestList = guestLines.slice(1).map(gLine => {
+            const name = gLine.split(',')[0].replace(/^"|"$/g, '').trim()
+            return name
+        })
+        allowedGuests.value = guestList.filter(item => !rsvpList.includes(item));
+    } catch (err) {
+        console.error('❌ Failed to load guest list', err)
+    }
 })
 </script>
-
-<style scoped>
-.overlay::after {
-    content: "";
-    position: absolute;
-    inset: 0;
-    background: rgba(0, 0, 0, 0.4);
-}
-
-.bg-light {
-    background-color: #faf9f7;
-}
-</style>
