@@ -2,10 +2,10 @@ import { createRouter, createWebHistory } from 'vue-router'
 import RenzAndKarlaWeddingView from '../views/RenzAndKarlaWeddingView.vue'
 
 const routes = [
-  { path: '/RenzAndKarlaWedding', component: RenzAndKarlaWeddingView }
+  { path: '/', component: RenzAndKarlaWeddingView }
 ]
 
 export default createRouter({
-  history: createWebHistory(),
+  history: createWebHistory('/RenzAndKarlaWedding/'),
   routes,
 })
