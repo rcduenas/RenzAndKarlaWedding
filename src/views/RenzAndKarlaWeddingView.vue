@@ -12,7 +12,7 @@
                         class="d-flex flex-column align-center">
                         <v-card class="count-box d-flex align-center justify-center pa-2 bg-secondary">
                             <span class="text-h6 font-weight-bold">{{ value.toString().padStart(2, '0')
-                                }}</span>
+                            }}</span>
                         </v-card>
                         <div class="text-body-2 mt-2 font-weight-meduim"
                             style="color: black; text-shadow: -1px -1px 0 white, 1px -1px 0 white, -1px  1px 0 white, 1px  1px 0 white;">
@@ -383,19 +383,19 @@ import church from '../assets/images/Church.png'
 import monogram from '../assets/images/Monogram.png'
 import { ref, onMounted, reactive } from 'vue'
 
-const allowedGuests = ref([])
-const valid = ref(false)
-const loading = ref(false)
-const message = ref('')
-const rsvpFormRef = ref(null)
-const weddingDate = new Date('2025-12-12T00:00:00')
-const countdown = ref({ Days: 0, Hours: 0, Minutes: 0, Seconds: 0 })
+const allowedGuests = ref([]);
+const valid = ref(false);
+const loading = ref(false);
+const message = ref('');
+const rsvpFormRef = ref(null);
+const weddingDate = new Date('2025-12-12T00:00:00');
+const countdown = ref({ Days: 0, Hours: 0, Minutes: 0, Seconds: 0 });
 const form = reactive({
     name: '',
     number: '',
     attendance: '',
     message: ''
-})
+});
 
 const carouselItems = [car1, car2, car3, car4, car5, car6, car7, car8, car9, car10, car11, car12, car13, car14, car15, car16, car17, car18, car19, car20, car21, car22, car23, car24, car25, car26, car27, car28, car29, car30, car31, car32]
 
