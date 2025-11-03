@@ -12,7 +12,7 @@
                         class="d-flex flex-column align-center">
                         <v-card class="count-box d-flex align-center justify-center pa-2 bg-secondary">
                             <span class="text-h6 font-weight-bold">{{ value.toString().padStart(2, '0')
-                            }}</span>
+                                }}</span>
                         </v-card>
                         <div class="text-body-2 mt-2 font-weight-meduim"
                             style="color: black; text-shadow: -1px -1px 0 white, 1px -1px 0 white, -1px  1px 0 white, 1px  1px 0 white;">
@@ -42,14 +42,13 @@
                 </div>
             </v-card>
         </div>
-
-        <v-carousel :show-arrows="false" cycle hide-delimiters style="height:300px; overflow:hidden;">
+        <v-carousel :show-arrows="false" cycle hide-delimiters style="height:400px; overflow:hidden;">
             <v-carousel-item v-for="(src, i) in carouselItems" :key="i" :src="src" reverse-transition="fade-transition"
-                transition="fade-transition" cover></v-carousel-item>
+                transition="fade-transition"></v-carousel-item>
         </v-carousel>
 
         <!-- 🌸 Quote Section -->
-        <div class="px-4 text-center" id="story" style="margin-top: -1rem;">
+        <div class="px-4 mt-4 text-center" id="story">
             <v-card rounded="large" class="bg-white pr-2">
                 <div class="pt-3 px-3 text-center" style="font-family: 'Great Vibes', cursive; font-size: 1.5rem;">
                     A Love Written by Fate ❤️</div>
@@ -357,7 +356,7 @@ import car23 from '../assets/images/Car23.jpg'
 import car24 from '../assets/images/Car24.jpg'
 import car25 from '../assets/images/Car25.jpg'
 import car26 from '../assets/images/Car26.jpg'
-import car27 from '../assets/images/Car27.jpg'
+import car27 from '../assets/images/Car27.JPG'
 import car28 from '../assets/images/Car28.jpg'
 import car29 from '../assets/images/Car29.jpg'
 import car30 from '../assets/images/Car30.jpeg'
