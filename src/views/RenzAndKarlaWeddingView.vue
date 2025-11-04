@@ -12,7 +12,7 @@
                         class="d-flex flex-column align-center">
                         <v-card class="count-box d-flex align-center justify-center pa-2 bg-secondary">
                             <span class="text-h6 font-weight-bold">{{ value.toString().padStart(2, '0')
-                                }}</span>
+                            }}</span>
                         </v-card>
                         <div class="text-body-2 mt-2 font-weight-meduim"
                             style="color: black; text-shadow: -1px -1px 0 white, 1px -1px 0 white, -1px  1px 0 white, 1px  1px 0 white;">
@@ -43,8 +43,7 @@
             </v-card>
         </div>
         <v-carousel :show-arrows="false" cycle hide-delimiters style="height:400px; overflow:hidden;">
-            <v-carousel-item v-for="(src, i) in carouselItems" :key="i" :src="src" reverse-transition="fade-transition"
-                transition="fade-transition"></v-carousel-item>
+            <v-carousel-item v-for="(src, i) in carouselItems" :key="i" :src="src"></v-carousel-item>
         </v-carousel>
 
         <!-- 🌸 Quote Section -->
