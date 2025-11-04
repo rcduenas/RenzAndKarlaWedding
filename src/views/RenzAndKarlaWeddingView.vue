@@ -12,7 +12,7 @@
                         class="d-flex flex-column align-center">
                         <v-card class="count-box d-flex align-center justify-center pa-2 bg-secondary">
                             <span class="text-h6 font-weight-bold">{{ value.toString().padStart(2, '0')
-                            }}</span>
+                                }}</span>
                         </v-card>
                         <div class="text-body-2 mt-2 font-weight-meduim"
                             style="color: black; text-shadow: -1px -1px 0 white, 1px -1px 0 white, -1px  1px 0 white, 1px  1px 0 white;">
@@ -470,7 +470,8 @@ onMounted(async () => {
             const name = gLine.split(',')[0].replace(/^"|"$/g, '').trim()
             return name
         })
-        allowedGuests.value = guestList.filter(item => !rsvpList.includes(item));
+        allowedGuests.value = guestList.filter(item => !rsvpList.includes(item)).sort((a, b) => a.localeCompare(b));
+
     } catch (err) {
         console.error('❌ Failed to load guest list', err)
     }
