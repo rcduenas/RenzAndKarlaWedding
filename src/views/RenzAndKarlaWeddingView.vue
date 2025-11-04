@@ -12,7 +12,7 @@
                         class="d-flex flex-column align-center">
                         <v-card class="count-box d-flex align-center justify-center pa-2 bg-secondary">
                             <span class="text-h6 font-weight-bold">{{ value.toString().padStart(2, '0')
-                            }}</span>
+                                }}</span>
                         </v-card>
                         <div class="text-body-2 mt-2 font-weight-meduim"
                             style="color: black; text-shadow: -1px -1px 0 white, 1px -1px 0 white, -1px  1px 0 white, 1px  1px 0 white;">
@@ -42,9 +42,11 @@
                 </div>
             </v-card>
         </div>
-        <v-carousel :show-arrows="false" cycle hide-delimiters style="height:400px; overflow:hidden;">
-            <v-carousel-item v-for="(src, i) in carouselItems" :key="i" :src="src"></v-carousel-item>
-        </v-carousel>
+        <div style="height:400px;">
+            <v-carousel :show-arrows="false" cycle hide-delimiters style="height:400px; overflow:hidden;">
+                <v-carousel-item v-for="(src, i) in carouselItems" :key="i" :src="src"></v-carousel-item>
+            </v-carousel>
+        </div>
 
         <!-- 🌸 Quote Section -->
         <div class="px-4 mt-4 text-center" id="story">
@@ -92,17 +94,19 @@
             <v-img :src="sponsors3" width="100wh" />
         </div>
 
-        <v-carousel :show-arrows="false" cycle hide-delimiters style="height:auto; overflow:hidden;">
-            <v-carousel-item :src="carousel1" />
-            <v-carousel-item :src="carousel2" />
-            <v-carousel-item :src="carousel3" />
-            <v-carousel-item :src="carousel4" />
-            <v-carousel-item :src="carousel5" />
-            <v-carousel-item :src="carousel6" />
-            <v-carousel-item :src="carousel7" />
-            <v-carousel-item :src="carousel8" />
-            <v-carousel-item :src="carousel9" />
-        </v-carousel>
+        <div style="height:300px;">
+            <v-carousel :show-arrows="false" cycle hide-delimiters style="height:auto; overflow:hidden;">
+                <v-carousel-item :src="carousel1" />
+                <v-carousel-item :src="carousel2" />
+                <v-carousel-item :src="carousel3" />
+                <v-carousel-item :src="carousel4" />
+                <v-carousel-item :src="carousel5" />
+                <v-carousel-item :src="carousel6" />
+                <v-carousel-item :src="carousel7" />
+                <v-carousel-item :src="carousel8" />
+                <v-carousel-item :src="carousel9" />
+            </v-carousel>
+        </div>
 
         <div class="text-center my-4" id="dress">
             <div style="font-family: 'Great Vibes', cursive; font-size: 2rem;">Dress Code</div>
