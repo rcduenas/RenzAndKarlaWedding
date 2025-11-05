@@ -12,7 +12,7 @@
                         class="d-flex flex-column align-center">
                         <v-card class="count-box d-flex align-center justify-center pa-2 bg-secondary">
                             <span class="text-h6 font-weight-bold">{{ value.toString().padStart(2, '0')
-                                }}</span>
+                            }}</span>
                         </v-card>
                         <div class="text-body-2 mt-2 font-weight-meduim"
                             style="color: black; text-shadow: -1px -1px 0 white, 1px -1px 0 white, -1px  1px 0 white, 1px  1px 0 white;">
@@ -462,16 +462,14 @@ onMounted(async () => {
         const rsvpLines = rsvpText.split('\n').map(line => line.trim()).filter(Boolean)
 
         // Remove header row (if any)
-        const rsvpList = rsvpLines.slice(1).map(rLine => {
-            const name = rLine.split(',')[1].replace(/^"|"$/g, '').trim()
-            return name
-        })
-        const guestList = guestLines.slice(1).map(gLine => {
-            const name = gLine.split(',')[0].replace(/^"|"$/g, '').trim()
-            return name
-        })
+        const rsvpList = rsvpLines
+            .slice(1)
+            .map(line => line.split(',')[1]?.replace(/^"|"$/g, '').trim())
+            .filter(Boolean);
+        const guestList = guestLines.slice(1)
+            .map(line => line.split(',')[0]?.replace(/^"|"$/g, '').trim())
+            .filter(Boolean);
         allowedGuests.value = guestList.filter(item => !rsvpList.includes(item)).sort((a, b) => a.localeCompare(b));
-
     } catch (err) {
         console.error('❌ Failed to load guest list', err)
     }
