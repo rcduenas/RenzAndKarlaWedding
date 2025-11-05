@@ -161,7 +161,7 @@
                             of guests. Please understand that this event is strictly by invitation only. Guests not
                             found on the guest list provided will not be allowed to enter. <br><br>The favor of a reply
                             is
-                            required on or before November 20, 2025.
+                            required on or before November 15, 2025.
                         </div>
                     </v-expansion-panel-text>
                 </v-expansion-panel>
