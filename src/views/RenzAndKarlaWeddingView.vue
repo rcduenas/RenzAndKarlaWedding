@@ -151,7 +151,7 @@
             <div class="text-center" style="font-family: 'Great Vibes', cursive; font-size: 2rem;">Your Questions,
                 Answered</div>
             <v-expansion-panels variant="accordion">
-                <v-expansion-panel class="my-1">
+                <!-- <v-expansion-panel class="my-1">
                     <v-expansion-panel-title static color="secondary" class="font-weight-bold">
                         <v-icon start color="white">mdi-email-outline</v-icon>RSVP
                     </v-expansion-panel-title>
@@ -164,7 +164,7 @@
                             required on or before November 15, 2025.
                         </div>
                     </v-expansion-panel-text>
-                </v-expansion-panel>
+                </v-expansion-panel> -->
                 <v-expansion-panel class="my-1">
                     <v-expansion-panel-title static color="secondary" class="font-weight-bold">
                         <v-icon start color="white">mdi-car</v-icon>Is there parking space available for my car?
@@ -328,8 +328,7 @@
             </v-card>
         </div>
     </div>
-    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
-    </link>
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet" />
 </template>
 <script setup>
 import homeImage from '../assets/images/Home.jpg'
